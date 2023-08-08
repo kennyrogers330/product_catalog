@@ -57,16 +57,19 @@ class FileHandler{
         }
 
         ifstream prodsFile(filename);
-
+        bool flag = 0;
         while (getline(prodsFile, prodLine)){
             size_t initInd = prodLine.find(key);
+            
             if(initInd != std::string::npos){
                 prd.productFromJson(prodLine);
                 prodList.push_back(prd);
-            }else{
-                cout << "The search product was not found...";
+                flag = 1;
             }
         }
+        // if(!flag){
+        //     cout << "The search product was not found..." << endl;
+        // }
         prodsFile.close();
         return prodList;
     };

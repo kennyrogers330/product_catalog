@@ -69,6 +69,16 @@ int main()
             getline(cin >> ws, userInput);
             result = sp.searchByName(userInput);
             break;
+        case 3:
+            cout <<"Enter product brand to search: ";
+            getline(cin >> ws, userInput);
+            result = sp.searchByBrand(userInput);
+            break;
+        case 4: 
+            cout <<"Enter product category to search: ";
+            getline(cin >> ws, userInput);
+            result = sp.searchByCategory(userInput);
+            break;
         default:
             cout <<"\nWrong input!\n\n";
     }
