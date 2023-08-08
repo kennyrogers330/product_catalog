@@ -22,7 +22,8 @@ public:
         // TODO
         //Add code to search by name. Searching is not case sensitive it means 
         //for input like: "name" products with names like "Name 1", "Product name" needs to included in the found results.
-    
+        //cout <<"Enter the"
+        //string lowecaseVal = to_lowercase()
     };
 
     vector<Product> searchByCategory(string categ){
