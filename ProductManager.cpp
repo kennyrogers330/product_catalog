@@ -40,7 +40,8 @@ public:
         getline(cin >> ws, userInput);
         SearchProduct sp;
         string lwcs = sp.to_lowercase(userInput);
-        cout <<lwcs<<endl; 
+        FileHandler flHdl;
+        bool result = flHdl.updateProductHelper(lwcs);
     }
     // TODO Add code for deleting a product
     

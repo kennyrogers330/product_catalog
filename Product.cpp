@@ -29,6 +29,10 @@ class Product{
         return name;
     }
 
+    string getCode(){
+        return code;
+    }
+
     string getBrand(){
         //TODO Add code that return the Product Brand
         return brand;
