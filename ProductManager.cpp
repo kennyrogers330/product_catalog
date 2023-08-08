@@ -31,7 +31,6 @@ public:
         prod.createProduct();
         FileHandler flHdl;
         flHdl.saveToJsonFile(prod);
-        
     }
 
     // TODO Add code for Updating a product
@@ -48,6 +47,9 @@ int main()
    ProductManager pm; 
    Product prod;
    string jsonString;
+   SearchProduct sp;
+   vector<Product> result;
+   string userInput;
    int choice;
    do{   
     choice = pm.getMenu();
@@ -63,9 +65,9 @@ int main()
             pm.addProduct();
             break;
         case 2:
-            //prod.productFromJson("{\"code\":\"tgtwdNbCnwx\",\"name\":\"name 1\",\"brand\":\"br 2\",\"description\":\"df\",\"dosage_instruction\":\"dfg dfreeenop\",\"price\":123.000000,\"quantity\":13654,\"category\":\"nice category\",\"requires_prescription\":0}");
-            //jsonString = prod.toJson();
-           // std::cout << jsonString << std::endl;
+            cout <<"Enter product name to search: " <<endl;
+            getline(cin >> ws, userInput);
+            result = sp.searchByName(userInput);
             break;
         default:
             cout <<"\nWrong input!\n\n";

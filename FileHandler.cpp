@@ -47,6 +47,30 @@ class FileHandler{
         return prodList;
     };
 
+    vector<Product> SearchHelper(string key){
+
+        vector<Product> prodList; 
+        string prodLine; 
+        Product prd;
+        if (filename.empty()){
+            filename = "data/products.json";
+        }
+
+        ifstream prodsFile(filename);
+
+        while (getline(prodsFile, prodLine)){
+            size_t initInd = prodLine.find(key);
+            if(initInd != std::string::npos){
+                prd.productFromJson(prodLine);
+                prodList.push_back(prd);
+            }else{
+                cout << "The search product was not found...";
+            }
+        }
+        prodsFile.close();
+        return prodList;
+    };
+
     void saveToJsonFile(Product p){
 
         vector<Product> pList;
