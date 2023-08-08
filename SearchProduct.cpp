@@ -29,11 +29,7 @@ public:
         prodList = fHandler.SearchHelper(name);
         
         if(prodList.size() > 0){
-          cout << "Result for medication Products in Json Format: \n"<< endl;
-          
-          for(int i =0; i<prodList.size(); i++){
-            cout << prodList.at(i).toJson() << endl;
-          }
+          showSearchResult(prodList, "Result for medication Products in Json Format: \n");
         }else{
              cout << "The search product was not found..." << endl;
         }
@@ -52,13 +48,8 @@ public:
         cout << "Searching Text: "<< lowecaseVal << "..." << endl;
         prodList = fHandler.SearchHelper(categ);
 
-        if(prodList.size() > 0){
-          cout << "Result for product category in Json Format: \n"<< endl;
-          
-          for(int i =0; i<prodList.size(); i++){
-            cout << prodList.at(i).toJson() << endl;
-            cout << "\n";
-          }
+        if(prodList.size() > 0){         
+          showSearchResult(prodList, "Result for product category in Json Format: \n");
         }else{
              cout << "The search product category was not found..." << endl;
         }
@@ -77,13 +68,8 @@ public:
         cout << "Searching Text: "<< lowecaseVal << "..." << endl;
         prodList = fHandler.SearchHelper(brand);
 
-        if(prodList.size() > 0){
-          cout << "Result for brand Products in Json Format: \n"<< endl;
-          
-          for(int i =0; i<prodList.size(); i++){
-            cout << prodList.at(i).toJson() << endl;
-            cout << "\n";
-          }
+        if(prodList.size() > 0){                  
+          showSearchResult(prodList, "Result for brand Products in Json Format: \n");
         }else{
              cout << "The search product brand was not found..." << endl;
         }
@@ -95,6 +81,11 @@ public:
     {
         // TODO
         //Add code to display Search results
-
+        cout << sTxt << endl;
+        for(int i =0; i<plist.size(); i++){
+            cout << plist.at(i).toJson() << endl;
+            cout << "\n";
+            
+          }
     }
 };

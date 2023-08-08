@@ -19,7 +19,7 @@ public:
         // Update Product
         // Delete Product
         int choice;
-        cout << "Menu:\n1. Add Product\n2. Search Products By Name\n3. Search Products By Brand\n4. Search Products By Category\n5. Exit\nEnter your choice: ";
+        cout << "Menu:\n1. Add Product\n2. Search Products By Name\n3. Search Products By Brand\n4. Search Products By Category\n5. Update Product\n6. Delete Product\n5. Exit\nEnter your choice: ";
         cin >> choice; 
         
         return choice;
@@ -34,7 +34,14 @@ public:
     }
 
     // TODO Add code for Updating a product
-
+    void updateProduct(){
+        string userInput;
+        cout << "\nEnter the product code: " << endl;
+        getline(cin >> ws, userInput);
+        SearchProduct sp;
+        string lwcs = sp.to_lowercase(userInput);
+        cout <<lwcs<<endl; 
+    }
     // TODO Add code for deleting a product
     
 };
@@ -46,7 +53,6 @@ int main()
     // and handle all required logic to add, search, update, and delete product
    ProductManager pm; 
    Product prod;
-   string jsonString;
    SearchProduct sp;
    vector<Product> result;
    string userInput;
@@ -78,6 +84,9 @@ int main()
             cout <<"Enter product category to search: ";
             getline(cin >> ws, userInput);
             result = sp.searchByCategory(userInput);
+            break;
+        case 5:
+            pm.updateProduct();
             break;
         default:
             cout <<"\nWrong input!\n\n";
