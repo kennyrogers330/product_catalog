@@ -19,7 +19,7 @@ public:
         // Update Product
         // Delete Product
         int choice;
-        cout << "Menu:\n1. Add Product\n2. Search Products By Name\n3. Search Products By Brand\n4. Search Products By Category\n5. Update Product\n6. Delete Product\n5. Exit\nEnter your choice: ";
+        cout << "Menu:\n1. Add Product\n2. Search Products By Name\n3. Search Products By Brand\n4. Search Products By Category\n5. Update Product\n6. Delete Product\n7. Exit\nEnter your choice: ";
         cin >> choice; 
         
         return choice;
@@ -38,12 +38,14 @@ public:
         string userInput;
         cout << "\nEnter the product code: " << endl;
         getline(cin >> ws, userInput);
-        SearchProduct sp;
-        string lwcs = sp.to_lowercase(userInput);
         FileHandler flHdl;
-        bool result = flHdl.updateProductHelper(lwcs);
+        bool result = flHdl.updateProductHelper(userInput);
     }
+
     // TODO Add code for deleting a product
+    void deleteProduct(){
+        
+    }
     
 };
 
@@ -89,10 +91,16 @@ int main()
         case 5:
             pm.updateProduct();
             break;
+        case 6:
+
+            break;
+        case 7:
+            cout << "GoodBye..." << endl;
+            break; 
         default:
             cout <<"\nWrong input!\n\n";
     }
-   }while (choice!=5);
+   }while (choice!=7);
     
     return 0;
 }

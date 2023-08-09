@@ -29,8 +29,24 @@ class Product{
         return name;
     }
 
+    void setName(string thisname){
+        if(!thisname.empty()){
+            name = thisname;
+        }else{
+            cout << "\nInvalid name assigned. " << endl;
+        }
+    }
+
     string getCode(){
         return code;
+    }
+
+    void setCode(string thiscode){
+        if(!thiscode.empty()){
+            code = thiscode;
+        }else{
+            cout << "\nInvalid code assigned. " << endl;
+        }
     }
 
     string getBrand(){
@@ -38,9 +54,24 @@ class Product{
         return brand;
     }
 
+    void setBrand(string thisBrand){
+        if(!thisBrand.empty()){
+            brand = thisBrand;
+        }else{
+            cout << "\nInvalid brand name assigned. " << endl;
+        }
+    }
     string getDecrisption(){
         //TODO Add code that return the Product Description
         return description;
+    }
+
+     void setDescription(string thisDescription){
+        if(!thisDescription.empty()){
+            description = thisDescription;
+        }else{
+            cout << "\nInvalid description assigned. " << endl;
+        }
     }
 
     string getDosageInstraction(){
@@ -48,14 +79,36 @@ class Product{
         return dosageInstruction;
     }
 
+    void setDosageInstructions(string thisDosageInstruction){
+        if(!thisDosageInstruction.empty()){
+            dosageInstruction = thisDosageInstruction;
+        }else{
+            cout << "\nInvalid dosageInstruction assigned. " << endl;
+        }
+    }
+
+
     string getCategory(){
         //TODO Add code that return the Product Category
         return category;
     }
+
+    void setCategory(string thisCategory){
+        if(!thisCategory.empty()){
+            category = thisCategory;
+        }else{
+            cout << "\nInvalid category assigned. " << endl;
+        }
+    }
+
     
     int getQuantity(){
         //TODO Add code that return the Product Quantity
         return quantity;
+    }
+
+    void setQuantity(int thisQty){
+        quantity = thisQty;
     }
 
     float getPrice(){
@@ -63,11 +116,18 @@ class Product{
         return price;
     }
 
+    void setPrice(float thisPrice){
+        price = thisPrice;
+    }
+
     bool getRequiresPrescription(){
         //TODO Add code that return Product Requires Prescription status
         return requires_prescription;
     }
 
+     void setRequiresPrescription(bool thisRequiresPrescription){
+        requires_prescription = thisRequiresPrescription;
+    }
 
     string generateUniqueCode()
     {
