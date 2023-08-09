@@ -69,6 +69,48 @@ class FileHandler{
         return prodList;
     };
 
+    bool deleteProductHelper(string code){
+        vector<Product> prodList; 
+        string prodLine; 
+        Product prd;
+        if (filename.empty()){
+            filename = "data/products.json";
+        }
+
+        ifstream prodsFile(filename);
+        ofstream updatesFile("data/updates.json");
+        bool flag = 0;
+
+        while (getline(prodsFile, prodLine)){
+            size_t initInd = prodLine.find("\"code\":\"");
+            if(initInd != std::string::npos){
+                 initInd+=8;
+                size_t codePos = prodLine.find("\"", initInd);
+                string prodCode = prodLine.substr(initInd, codePos - initInd);
+
+                if(prodCode == code){
+                    flag = 1;
+                    continue;
+                }
+            }
+            updatesFile << prodLine << endl;
+        }
+
+        prodsFile.close();
+        updatesFile.close();
+
+        if(flag){
+            remove(filename.c_str());
+            rename("data/updates.json", filename.c_str());
+            cout<< "\nDelete process completed. " << endl;
+            return 1;
+        }
+        else{
+            cout<< "\n Product with code " << code << " not found. " << endl;
+            return 0;
+        }
+    };
+
     bool updateProductHelper(string code){
         vector<Product> prodList; 
         string prodLine; 

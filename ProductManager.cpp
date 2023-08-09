@@ -44,7 +44,11 @@ public:
 
     // TODO Add code for deleting a product
     void deleteProduct(){
-        
+        string userInput;
+        cout << "\nReady to delete a product....\n\nEnter the code of the product" << endl;
+        getline(cin >> ws, userInput);
+        FileHandler flHdl;
+        flHdl.deleteProductHelper(userInput);
     }
     
 };
@@ -92,7 +96,7 @@ int main()
             pm.updateProduct();
             break;
         case 6:
-
+            pm.deleteProduct();
             break;
         case 7:
             cout << "GoodBye..." << endl;
